@@ -4,11 +4,22 @@ class HomeScreenLayout < MotionKit::Layout
       add UIImageView, :logo
 
       add UILabel, :not
+      add UIButton, :lets_go_button
     end
   end
 
   def home_screen_view_style
     background_color UIColor.whiteColor
+  end
+
+  def lets_go_button_style
+    title 'Let’s Go!'
+    title_color '#000'.uicolor
+    constraints do
+      width.equals(:superview)
+      top.equals(:logo, :bottom)
+      bottom.equals(:superview)
+    end
   end
 
   def not_style
