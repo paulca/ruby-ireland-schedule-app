@@ -1,10 +1,12 @@
 class HomeScreenLayout < MotionKit::Layout
+  view :lets_go_button
+
   def layout
     root :home_screen_view do
       add UIImageView, :logo
 
       add UILabel, :not
-      add UIButton, :lets_go_button
+      @lets_go_button = add UIButton, :lets_go_button
     end
   end
 
