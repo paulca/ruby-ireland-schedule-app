@@ -12,7 +12,7 @@ class HomeViewController < UIViewController
   end
 
   def open_meetups_list
-    AFMotion::JSON.get('http://ruby_ireland_schedule.dev/meetups.json') do |result|
+    AFMotion::JSON.get('http://ruby-ireland-schedule-api.herokuapp.com/meetups.json') do |result|
       if result.success?
         App.alert("Meetups: #{result.object}")
       else
