@@ -10,10 +10,16 @@ class HomeScreenLayout < MotionKit::Layout
   end
 
   def logo_style
-    top 0
-    left 0
-    width '289'
-    height '234'
+    # top 0
+    # left 0
     image UIImage.imageNamed('belfast-ruby')
+
+    constraints do
+      width.equals(289)
+      height.equals(234)
+
+      center.equals(:superview)
+      # top_left.is ['50% - 114', '50% - 117']
+    end
   end
 end
