@@ -1,6 +1,11 @@
 class MeetupListScreen < PM::TableScreen
 
+  refreshable
   title "Meetups"
+
+  def on_refresh
+    load_async
+  end
 
   def on_load
     load_async
@@ -33,6 +38,9 @@ class MeetupListScreen < PM::TableScreen
 
   def load_async
     AFMotion::JSON.get('http://ruby-ireland-schedule-api.herokuapp.com/meetups.json') do |result|
+
+      end_refreshing
+
       if result.success?
         @meetups = result.object
       else
