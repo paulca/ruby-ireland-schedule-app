@@ -1,11 +1,9 @@
 class HomeViewController < UIViewController
 
   def loadView
-    self.view = UIImageView.alloc.init
+    @layout = HomeScreenLayout.new
+    self.view = @layout.view
+    @layout.build
   end
 
-  def viewDidLoad
-    image = UIImage.imageNamed('belfast-ruby.png')
-    view.image = image
-  end
 end
