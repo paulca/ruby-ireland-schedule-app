@@ -1,8 +1,6 @@
 class AppDelegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
-    alert = UIAlertView.new
-    alert.message = "Hello World!"
-    alert.show
+    App.alert('Hello Ruby Ireland!')
     true
   end
 end
