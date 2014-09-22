@@ -2,6 +2,8 @@ class HomeScreenLayout < MotionKit::Layout
   def layout
     root :home_screen_view do
       add UIImageView, :logo
+
+      add UILabel, :not
     end
   end
 
@@ -9,9 +11,18 @@ class HomeScreenLayout < MotionKit::Layout
     background_color UIColor.whiteColor
   end
 
+  def not_style
+    text 'NOT!'
+    color '#fff'.uicolor
+    text_alignment NSTextAlignmentCenter
+    constraints do
+      width.equals(:logo)
+      height 50
+      top_left.equals(:logo)
+    end
+  end
+
   def logo_style
-    # top 0
-    # left 0
     image UIImage.imageNamed('belfast-ruby')
 
     constraints do
@@ -19,7 +30,6 @@ class HomeScreenLayout < MotionKit::Layout
       height.equals(234)
 
       center.equals(:superview)
-      # top_left.is ['50% - 114', '50% - 117']
     end
   end
 end

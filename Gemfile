@@ -5,3 +5,4 @@ gem 'rake'
 
 gem "bubble-wrap", "~> 1.7.1"
 gem 'motion-kit'
+gem 'sugarcube', require: ['sugarcube-color']
