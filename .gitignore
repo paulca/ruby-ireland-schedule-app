@@ -16,3 +16,6 @@ nbproject
 .sass-cache
 .idea
 .dat*.*
+vendor/Pods
+vendor/Pods/*
+vendor/*/build*
