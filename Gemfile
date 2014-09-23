@@ -8,4 +8,3 @@ gem "bubble-wrap", "~> 1.7.1"
 gem 'cdq'
 gem 'motion-kit'
 gem 'ProMotion'
-gem 'sugarcube', require: ['sugarcube-color', 'sugarcube-events']

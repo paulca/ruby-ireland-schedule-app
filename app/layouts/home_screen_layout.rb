@@ -16,7 +16,7 @@ class HomeScreenLayout < MotionKit::Layout
 
   def lets_go_button_style
     title 'Let’s Go!'
-    title_color '#000'.uicolor
+    title_color NSColor.blackColor
     constraints do
       width.equals(:superview)
       top.equals(:logo, :bottom)
@@ -26,7 +26,7 @@ class HomeScreenLayout < MotionKit::Layout
 
   def not_style
     text 'NOT!'
-    color '#fff'.uicolor
+    color NSColor.whiteColor
     text_alignment NSTextAlignmentCenter
     constraints do
       width.equals(:logo)

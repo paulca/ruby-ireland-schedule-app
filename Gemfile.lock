@@ -68,7 +68,6 @@ GEM
       activesupport (~> 3.2)
       builder (~> 3.2)
       plist (~> 3.1)
-    sugarcube (1.6.3)
     xcodeproj (0.17.0)
       activesupport (~> 3.0)
       colored (~> 1.2)
@@ -83,4 +82,3 @@ DEPENDENCIES
   cdq
   motion-kit
   rake
-  sugarcube
