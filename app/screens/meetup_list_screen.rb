@@ -1,54 +1,39 @@
 class MeetupListScreen < PM::TableScreen
 
-  refreshable
   title "Meetups"
+  refreshable
+
+  def on_load
+    load_async unless Meetup.any?
+  end
 
   def on_refresh
     load_async
   end
 
-  def on_load
-    load_async
-  end
-
   def table_data
-    if !@meetups
+    if @loading
       [{
         cells: [
           { title: "Loading..."}
         ]
       }]
-    elsif @meetups.length == 0
-      [{
-        cells: [
-          { title: "No meetups"}
-        ]
-      }]
     else
-      [{
-        cells: @meetups.map do |meetup|
-          {
-            title: meetup['title'],
-            subtitle: "#{meetup['time']}"
-          }
-        end
-      }]
+      Meetup.table_data
     end
   end
 
   def load_async
-    AFMotion::JSON.get('http://ruby-ireland-schedule-api.herokuapp.com/meetups.json') do |result|
-
+    @loading = true
+    Meetup.load_async do
+      @loading = false
       end_refreshing
-
-      if result.success?
-        @meetups = result.object
-      else
-        @meetups = []
-      end
-
       update_table_data
     end
+  end
+
+  def show_meetup(meetup)
+    open MeetupShowScreen.new(nav_bar: true, meetup: meetup)
   end
 
 end
